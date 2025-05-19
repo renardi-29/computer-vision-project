@@ -1,10 +1,10 @@
-Judul Proyek: Sistem Deteksi Plat Kendaraan Genap Ganjil
+<h1>Sistem Deteksi Plat Kendaraan Genap Ganjil</h1>
 <br>Link Dataset: https://universe.roboflow.com/smartproject/deteksi-lisensi-plat 
 <br>Link PPT Canva: https://www.canva.com/design/DAGmFxCjSLA/lAMJdL2S9gwEHipRu3azxA/edit?utm_content=DAGmFxCjSLA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
 
-Aturan genap ganjil merupakan salah satu kebijakan yang diterapkan oleh Pemerintah Provinsi DKI Jakarta untuk mengurangi kemacetan dan menurunkan polusi di jalan-jalan utama kota Jakarta. Kebijakan ini mulai diberlakukan pada tahun 2016 dan diberlakukan secara bergiliran berdasarkan nomor plat kendaraan.
+<br>Aturan genap ganjil merupakan salah satu kebijakan yang diterapkan oleh Pemerintah Provinsi DKI Jakarta untuk mengurangi kemacetan dan menurunkan polusi di jalan-jalan utama kota Jakarta. Kebijakan ini mulai diberlakukan pada tahun 2016 dan diberlakukan secara bergiliran berdasarkan nomor plat kendaraan.
 
-Tujuan Sistem
+<h1>Tujuan Sistem</h1>
 <ul>
   <li>Deteksi Pelanggaran: Menangkap plat kendaraan yang melanggar aturan genap ganjil (misalnya, kendaraan dengan plat ganjil yang melintas pada hari genap).</li>
   <li>Database Pelanggaran: Mencatat kendaraan yang melanggar dalam sebuah database, termasuk plat nomor, tanggal, waktu, dan lokasi pelanggaran.</li>
