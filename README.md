@@ -1,43 +1,120 @@
-# Sistem Deteksi Plat Kendaraan Genap Ganjil
+# 🚗 Sistem Deteksi Pelanggaran Aturan Ganjil Genap Plat Nomor di Jakarta
 
-Link Dataset: [Deteksi Lisensi Plat](https://universe.roboflow.com/smartproject/deteksi-lisensi-plat)  
-Link PPT Canva: [Presentasi Sistem](https://www.canva.com/design/DAGmFxCjSLA/lAMJdL2S9gwEHipRu3azxA/edit?utm_content=DAGmFxCjSLA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+🔗 **Dataset Roboflow**: [Deteksi Lisensi Plat](https://universe.roboflow.com/smartproject/deteksi-lisensi-plat)  
+📊 **Presentasi Canva**: [Presentasi Sistem](https://www.canva.com/design/DAGmFxCjSLA/lAMJdL2S9gwEHipRu3azxA/edit?utm_content=DAGmFxCjSLA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-Aturan genap ganjil merupakan salah satu kebijakan yang diterapkan oleh Pemerintah Provinsi DKI Jakarta untuk mengurangi kemacetan dan menurunkan polusi di jalan-jalan utama kota Jakarta. Kebijakan ini mulai diberlakukan pada tahun 2016 dan diberlakukan secara bergiliran berdasarkan nomor plat kendaraan.
+---
 
-## Tujuan Sistem
-- **Deteksi Pelanggaran:** Menangkap plat kendaraan yang melanggar aturan genap ganjil (misalnya, kendaraan dengan plat ganjil yang melintas pada hari genap).
-- **Database Pelanggaran:** Mencatat kendaraan yang melanggar dalam sebuah database, termasuk plat nomor, tanggal, waktu, dan lokasi pelanggaran.
-- **Pemantauan Real-time:** Sistem bisa digunakan dengan kamera pemantauan di jalan raya atau titik pemeriksaan tertentu.
+## 📌 Latar Belakang
 
-## Langkah Pengembangan Sistem
+Aturan ganjil-genap merupakan kebijakan Pemerintah Provinsi DKI Jakarta yang diterapkan sejak 2016 untuk mengurangi kemacetan lalu lintas dan polusi udara. Sistem ini membatasi kendaraan berdasarkan digit terakhir plat nomor dan tanggal kalender.
 
-### Kebutuhan Data Sistem
-1. **Dataset Plat Nomor**  
-   Link Dataset: [Deteksi Lisensi Plat](https://universe.roboflow.com/smartproject/deteksi-lisensi-plat)
-   
-2. **Data Hari Genap Ganjil**  
-   Prinsip Dasar Aturan Genap Ganjil:
-   - Kendaraan dengan plat nomor ganjil hanya diperbolehkan untuk melintas di Jakarta pada hari ganjil (misalnya, tanggal 1, 3, 5, 7, dst.).
-   - Kendaraan dengan plat nomor genap hanya diperbolehkan untuk melintas di Jakarta pada hari genap (misalnya, tanggal 2, 4, 6, 8, dst.).
+Contoh:  
+- Plat nomor **B 1234 XYZ** → digit terakhir = **4** → **Genap**  
+- Maka hanya boleh melintas pada tanggal genap: 2, 4, 6, dst.
 
-3. **Waktu Pemberlakuan**  
-   Aturan ini diberlakukan pada jam-jam puncak di hari kerja, yaitu:
-   - **Pagi:** 06.00 - 10.00 WIB
-   - **Sore:** 16.00 - 20.00 WIB  
-   Di luar jam tersebut, kendaraan bebas melintas di wilayah tersebut tanpa menghiraukan aturan plat nomor genap ganjil.
+---
 
-### Proses
-1. Ambil digit terakhir dari nomor plat.
-2. Tentukan hari (apakah genap atau ganjil).
-3. Bandingkan apakah kendaraan yang memiliki plat nomor ganjil melintas pada hari genap, atau sebaliknya.
+## 🎯 Tujuan Proyek
 
-### Database Pelanggaran
-- Plat nomor kendaraan.
-- Tanggal dan waktu pelanggaran.
-- Lokasi (bisa dengan koordinat GPS dari kamera).
+- 🔍 **Deteksi Pelanggaran Otomatis**  
+  Mendeteksi kendaraan yang melanggar aturan ganjil-genap secara otomatis menggunakan kamera dan model deteksi plat nomor.
 
-## Tantangan
-- **Kualitas Gambar:** Pencahayaan atau cuaca yang buruk dapat mempengaruhi akurasi pembacaan plat nomor.
-- **Kecepatan Deteksi:** Sistem harus cukup cepat untuk memproses gambar dalam waktu nyata, terutama dengan volume kendaraan yang tinggi.
-- **Akurasi OCR:** OCR harus cukup kuat untuk membaca plat nomor dengan jelas, meskipun ada gangguan atau distorsi pada gambar.
+- 🗃 **Penyimpanan Data Pelanggaran**  
+  Menyimpan data pelanggaran ke dalam basis data termasuk:
+  - Nomor plat kendaraan
+  - Tanggal & waktu pelanggaran
+  - Lokasi (koordinat/GPS/camera ID)
+
+- 📡 **Pemantauan Real-Time**  
+  Sistem dapat terintegrasi dengan CCTV jalanan untuk mendeteksi pelanggaran secara langsung.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+| Komponen           | Teknologi / Library             |
+|--------------------|----------------------------------|
+| Model Deteksi      | YOLOv8s (Ultralytics)           |
+| OCR Plat Nomor     | EasyOCR / PaddleOCR             |
+| Dataset            | Roboflow                        |
+| Bahasa Pemrograman | Python                          |
+| Lingkungan         | Google Colab + CUDA (Tesla T4)  |
+| Framework Tambahan | OpenCV, Pandas, SQLite/MySQL    |
+
+---
+
+## 🔄 Alur Kerja Sistem
+
+```mermaid
+graph LR
+A[CCTV/Camera] --> B[YOLOv8: Deteksi Plat]
+B --> C[OCR: Ekstraksi Nomor Plat]
+C --> D[Ambil Digit Terakhir]
+D --> E[Cek Hari: Genap/Ganjil]
+E --> F{Cocok dengan Plat?}
+F -- Ya --> G[Aman]
+F -- Tidak --> H[Catat Sebagai Pelanggaran]
+H --> I[Simpan ke Database]
+```
+
+---
+
+## 📅 Logika Aturan Ganjil Genap
+
+- **Hari Ganjil**: Tanggal 1, 3, 5, 7, …  
+- **Hari Genap**: Tanggal 2, 4, 6, 8, …
+
+**Waktu Berlaku:**  
+- ⏰ **Pagi**: 06.00 – 10.00 WIB  
+- 🌇 **Sore**: 16.00 – 20.00 WIB  
+Di luar jam tersebut, aturan tidak berlaku.
+
+---
+
+## 🧾 Struktur Database Pelanggaran
+
+| Kolom           | Tipe Data         | Deskripsi                          |
+|------------------|-------------------|-------------------------------------|
+| `id`             | Integer (PK)      | ID unik                            |
+| `plate_number`   | Text              | Nomor plat kendaraan               |
+| `date`           | Date              | Tanggal pelanggaran                |
+| `time`           | Time              | Jam pelanggaran                    |
+| `location`       | Text / GPS Point  | Lokasi pelanggaran (opsional)     |
+| `image_path`     | Text              | Lokasi penyimpanan foto bukti     |
+
+---
+
+## ⚠️ Tantangan Teknis
+
+- 🌧 **Kondisi Pencahayaan**: Hujan atau malam hari bisa menurunkan akurasi deteksi.
+- 🚗 **Kepadatan Lalu Lintas**: Pemrosesan real-time harus tetap cepat meskipun kendaraan ramai.
+- 🔎 **Ketepatan OCR**: Membaca plat nomor dengan benar meski blur, miring, atau terhalang.
+
+---
+
+## 📈 Hasil Model
+
+| Metric        | Value     |
+|---------------|-----------|
+| Precision     | 0.983     |
+| Recall        | 0.946     |
+| mAP@0.5       | 0.973     |
+| mAP@0.5:0.95  | 0.711     |
+
+**Model Info**  
+- Model: YOLOv8s  
+- Epoch: 20  
+- Validasi: 2048 images (2195 objek)  
+- GPU: Tesla T4 (RAM 15 GB)  
+- Durasi Training: ~0.987 jam (~59 menit)
+
+---
+
+## ✅ Status
+
+🟢 **Model YOLOv8 berhasil dilatih dan diuji.**  
+📥 Data pelanggaran dapat dicatat secara otomatis.  
+📦 Siap diintegrasikan ke sistem kamera atau dashboard.
+
+---
