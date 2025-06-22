@@ -31,6 +31,18 @@ Contoh:
 
 ---
 
+## 📊 Status Proyek
+
+| Fitur                                 | Status        |
+|--------------------------------------|---------------|
+| Deteksi Plat Kendaraan (YOLOv8)      | ✅ Selesai     |
+| OCR Nomor Plat (EasyOCR/PaddleOCR)   | ✅ Selesai     |
+| Deteksi Ganjil/Genap Berdasarkan Hari| 🟡 On Progress|
+| Pembuatan & Integrasi Database       | 🟡 On Progress|
+| Penginputan Data Pelanggaran ke DB   | 🟡 On Progress|
+
+---
+
 ## 🛠️ Teknologi yang Digunakan
 
 | Komponen           | Teknologi / Library             |
@@ -111,10 +123,7 @@ Di luar jam tersebut, aturan tidak berlaku.
 
 ---
 
-## ✅ Status
+## ✅ Catatan
 
-🟢 **Model YOLOv8 berhasil dilatih dan diuji.**  
-📥 Data pelanggaran dapat dicatat secara otomatis.  
-📦 Siap diintegrasikan ke sistem kamera atau dashboard.
-
----
+- 🚧 Fitur pengecekan hari & integrasi database sedang dalam tahap pengembangan.
+- 📷 Proses deteksi plat dan nomor sudah berjalan dengan baik.
