@@ -37,9 +37,9 @@ Example:
 |---------------------------------------------|---------------|
 | Vehicle License Plate Detection (YOLOv8)    | ✅ Completed   |
 | License Plate Number OCR                    | ✅ Completed   |
-| Odd-Even Day Violation Detection Logic      | 🟡 In Progress |
-| Database Creation and Integration           | 🟡 In Progress |
-| Logging Violation Data to Database          | 🟡 In Progress |
+| Odd-Even Day Violation Detection Logic      | ✅ Completed   |
+| Database Creation and Integration           | ✅ Completed   |
+| Logging Violation Data to Database          | ✅ Completed   |
 
 ---
 
