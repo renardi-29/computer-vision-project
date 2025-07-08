@@ -127,3 +127,13 @@ Outside these hours, all vehicles may operate freely.
 
 - 🚧 Odd/Even date checking and database integration are currently under development.
 - 📷 Plate detection and number recognition are already working correctly.
+
+---
+Capture Demo Project
+- Main Page:
+<img width="960" alt="MainPage" src="https://github.com/user-attachments/assets/c24aad14-cdcf-4821-b638-c47b101e6ace" />
+
+- Detection License Plate
+<img width="960" alt="DetectionImage3" src="https://github.com/user-attachments/assets/6a7e558a-7912-4228-9383-b28b90491dd2" />
+<img width="960" alt="DetectionImage2" src="https://github.com/user-attachments/assets/7c58f261-b681-496d-9466-d90565bcab81" />
+<img width="960" alt="DetectionImage1" src="https://github.com/user-attachments/assets/f28f857a-3982-4962-83fa-aed952422b7b" />
